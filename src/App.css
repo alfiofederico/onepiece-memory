@@ -48,9 +48,13 @@ p {
  body {
    font-size: 1em;
    background-image: url(/src/onepiece.jpg);
-   /* background-size: center; */
+/*    background-size: center;
    background-position: right;
-   /* max-height: 100%; */
-   /* box-sizing: border-box; */
+   max-height: 100%;
+   box-sizing: border-box; */
+   
+   background-size: cover;
+   background-position: right;
+   min-height: 800px;
  } 
 }
