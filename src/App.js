@@ -13,6 +13,7 @@ const cardImages = [
   { src: "/img/nami.jpg", matched: false }, 
   { src: "/img/sanji.jpg", matched: false }, 
   { src: "/img/robin.jpg", matched: false },   
+  { src: "/img/jinbei.jpg", matched: false },   
 ];
 
 
@@ -103,7 +104,7 @@ function App() {
               disabled={disabled}
             />
           ))}
-          <p>
+          <p className="turn">
             Turn: <span className="red">{turns}</span>
           </p>
         </div>
