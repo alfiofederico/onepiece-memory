@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
+import Modal from './components/Molal'
 
 const cardImages = [
   { src: "/img/luffy.jpg", matched: false },
@@ -23,6 +24,7 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
   const [disabled, setDisabled] = useState(false)
+  const [matches, setMatches] = useState(0)
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -33,6 +35,7 @@ function App() {
       setChoiceTwo(null)
       setCards(shuffledCards)
       setTurns(0)
+      
   }
 
   /* handle choices */
@@ -48,13 +51,14 @@ function App() {
 /*   compare cards */
 
   useEffect(() => {
-    
+   
     if (choiceOne && choiceTwo) {
       setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
         setCards(prevCards => {
           return prevCards.map(card => {
             if (card.src === choiceOne.src) {
+              setMatches(matches + 1)
               return {...card, matched: true }
             } else {
               return card
@@ -67,7 +71,7 @@ function App() {
        setTimeout(() => resetTurn(), 1000)
       }
     }
-  }, [choiceOne, choiceTwo])
+  }, [choiceOne, choiceTwo, matches])
 
 /*   reset & add turn */
 
@@ -84,7 +88,7 @@ function App() {
         <span className="animate__animated animate__bounce"> One Piece</span> Memory Game
       </h1>
       <button onClick={shuffleCards}>New Game</button>
-
+    {matches  === cardImages.length ? <Modal /> : (
       <div className="card-grid">
         {cards.map((card) => (
           <SingleCard
@@ -95,7 +99,7 @@ function App() {
             disabled={disabled}
           />
         ))}
-      </div>
+      </div>)}
       <p>
         Turn: <span className="red">{turns}</span>
       </p>
