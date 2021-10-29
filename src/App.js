@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 import Molal from './components/Molal';
+import Footer from './components/Footer';
 
 const cardImages = [
   { src: "/img/luffy.jpg", matched: false },
@@ -109,9 +110,9 @@ function App() {
           </p>
         </div>
       )}
-{/*       <p>
-        Turn: <span className="red">{turns}</span>
-      </p> */}
+      <div className="footer-d">
+        <Footer />
+      </div>
     </div>
   );
 }
