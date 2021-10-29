@@ -101,12 +101,12 @@ function App() {
           />
           
         ))}
-        <p>Turn: <span className="red">{turns}</span></p>
+       {/*  <p>Turn: <span className="red">{turns}</span></p> */}
       </div>)}
      
-    {/*   <p>
+      <p>
         Turn: <span className="red">{turns}</span>
-      </p> */}
+      </p> 
     </div> 
   );
 }
