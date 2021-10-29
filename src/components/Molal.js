@@ -1,11 +1,9 @@
-import React from 'react'
 
-export default function Molal () {
+
+export default function Molal({turns} ) {
   return (
-    <div>
-      <h1 className='victory'>
-        Victory! You made it !    
-      </h1>
-    </div>
-  )
+    <h1 className="victory">
+      Victory! You made it in <span className="red">{turns}</span> turns!
+    </h1>
+  );
 }

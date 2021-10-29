@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
-import Molal from './components/Molal'
+import Molal from './components/Molal';
 
 const cardImages = [
   { src: "/img/luffy.jpg", matched: false },
   { src: "/img/zoro.jpg", matched: false },
   { src: "/img/usopp.jpg", matched: false }, 
-  /* { src: "/img/brook.jpg", matched: false }, */
- /*  { src: "/img/chopper_0.jpg", matched: false }, */
- /*  { src: "/img/franky.jpg", matched: false },  */
-  /* { src: "/img/nami.jpg", matched: false }, */
-  /* { src: "/img/sanji.jpg", matched: false }, */
-/*   { src: "/img/robin.jpg", matched: false },   */ 
+  { src: "/img/brook.jpg", matched: false },  
+  { src: "/img/chopper_0.jpg", matched: false }, 
+  { src: "/img/franky.jpg", matched: false },  
+  { src: "/img/nami.jpg", matched: false }, 
+  { src: "/img/sanji.jpg", matched: false }, 
+  { src: "/img/robin.jpg", matched: false },   
 ];
 
 
@@ -79,35 +79,39 @@ function App() {
     setChoiceOne(null)
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
-    setMatches(0)
+    /* setMatches(0) */
     setDisabled(false)
   }
 
   return (
     <div className="App">
       <h1>
-        <span className="animate__animated animate__bounce"> One Piece</span> Memory Game
+        <span className="animate__animated animate__bounce"> One Piece</span>{" "}
+        Memory Game
       </h1>
       <button onClick={shuffleCards}>New Game</button>
-    {matches  === cardImages.length ? <Molal  /> : (
-      <div className="card-grid">
-        {cards.map((card) => (
-          <SingleCard
-            key={card.id}
-            card={card}
-            handleChoice={handleChoice}
-            flipped={card === choiceOne || card === choiceTwo || card.matched}
-            disabled={disabled}
-          />
-          
-        ))}
-       
-      </div>)}
-     
-      <p>
+      {matches === cardImages.length ? (
+        <Molal turns={turns} />
+      ) : (
+        <div className="card-grid">
+          {cards.map((card) => (
+            <SingleCard
+              key={card.id}
+              card={card}
+              handleChoice={handleChoice}
+              flipped={card === choiceOne || card === choiceTwo || card.matched}
+              disabled={disabled}
+            />
+          ))}
+          <p>
+            Turn: <span className="red">{turns}</span>
+          </p>
+        </div>
+      )}
+{/*       <p>
         Turn: <span className="red">{turns}</span>
-      </p> 
-    </div> 
+      </p> */}
+    </div>
   );
 }
 
