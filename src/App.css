@@ -42,7 +42,7 @@ p {
   grid-template-columns:1fr 1fr 1fr 1fr;
   grid-gap:10px;
   margin-left: 15px;
-  margin-top: 60px;
+  margin-top: 40px;
  }
 
  body {
