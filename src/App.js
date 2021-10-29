@@ -6,13 +6,13 @@ import Molal from './components/Molal'
 const cardImages = [
   { src: "/img/luffy.jpg", matched: false },
   { src: "/img/zoro.jpg", matched: false },
- /*  { src: "/img/usopp.jpg", matched: false }, 
+  { src: "/img/usopp.jpg", matched: false }, 
   { src: "/img/brook.jpg", matched: false },
   { src: "/img/chopper_0.jpg", matched: false },
   { src: "/img/franky.jpg", matched: false },
   { src: "/img/nami.jpg", matched: false },
   { src: "/img/sanji.jpg", matched: false },
-  { src: "/img/robin.jpg", matched: false }, */
+  { src: "/img/robin.jpg", matched: false },
 ];
 
 
@@ -101,11 +101,12 @@ function App() {
           />
           
         ))}
+        <p>Turn: <span className="red">{turns}</span></p>
       </div>)}
      
-      <p>
+    {/*   <p>
         Turn: <span className="red">{turns}</span>
-      </p>
+      </p> */}
     </div> 
   );
 }
